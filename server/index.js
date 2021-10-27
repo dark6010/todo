@@ -20,8 +20,9 @@ async function start () {
   const nuxt = await loadNuxt(isDev ? 'dev' : 'start')
   
   // Render every route with Nuxt
+  app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
   }));
   app.use('/api', todo);
   app.use(nuxt.render)
